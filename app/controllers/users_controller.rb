@@ -10,10 +10,11 @@ class UsersController < ApplicationController
       flash[:error] = "User already exist"
     else
     @user = User.new(user_params)
+    @user.role = "owner"
       if @user.save
         UserMailer.registration_confirmation(@user).deliver
         flash[:success] = "Please confirm your email address to continue"
-        redirect_to '/dashboard/index'
+        redirect_to '/login'
       else
         redirect_to '/'
       end
