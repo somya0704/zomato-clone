@@ -1,0 +1,22 @@
+<div class='signup_form'>
+    <div class="header">
+        <h4 class="title">CREATE</h4>
+    </div>
+    <div class="body">
+        <%= form_with model: @restaurant do |form| %>
+            <div class=”field”>
+                <%= label_tag :name %>
+                    <%= text_field_tag :name %>
+            </div>
+            <div class=”field”>
+                <%= label_tag :image_url %>
+                    <%= text_field_tag :image_url %>
+            </div>
+
+            <div class=”actions”>
+                <%= form.submit 'Create' %>
+            </div>
+
+            <% end %>
+    </div>
+</div>

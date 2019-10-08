@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'dashboard/index'
+  get 'owner_dashboard/index'
   get 'home/index'
   root 'home#index'
 
@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
+  get '/confirm_email' => 'users#confirm_email'
   
   resources :sessions, only: [ :create, :destory]
+  resources :restaurants
 
 end

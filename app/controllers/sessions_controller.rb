@@ -5,9 +5,12 @@ class SessionsController < ApplicationController
   def create
     user = User.authenticate(params[:email], params[:password])
     if user
-      session[:user_id] = user.id
-      
-      redirect_to '/dashboard/index', :notice => "Logged in!"
+      if user.email_confirmed
+        session[:user_id] = user.id
+        redirect_to '/restaurants/new', :notice => "Logged in!"
+      else
+        redirect_to login_path, :notice => "Please check your email to confirm account"
+      end
     else
       redirect_to login_path, :notice => "Invalid email or password"
     end

@@ -8,11 +8,15 @@ class UsersController < ApplicationController
     user = User.where(email: params[:email].downcase).exists?
     if user
       flash[:error] = "User already exist"
+      redirect_to signup_path
     else
-    @user = User.new(user_params)
-    @user.role = "owner"
+      @user = User.new(user_params)
+      @user.role = "owner"
       if @user.save
-        UserMailer.registration_confirmation(@user).deliver
+        UserMailerConfirmationJob.perform_later(
+          @user.email.to_s, 
+          @user.confirmation_token.to_s,
+          )
         flash[:success] = "Please confirm your email address to continue"
         redirect_to '/login'
       else
@@ -21,8 +25,15 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
+  def confirm_email
+    token = params[:token]
+    user = User.find_by(confirmation_token: token)
+    if user
+      user.update_attribute(:email_confirmed, true)
+      redirect_to '/login'
+    end
   end
+
   private
 
   def user_params
