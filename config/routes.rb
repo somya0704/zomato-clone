@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'staffs/create'
   get 'owner_dashboard/index'
   get 'home/index'
   root 'home#index'
@@ -13,5 +14,6 @@ Rails.application.routes.draw do
   
   resources :sessions, only: [ :create, :destory]
   resources :restaurants
+  resources :staffs
 
 end
