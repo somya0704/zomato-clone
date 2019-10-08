@@ -5,7 +5,11 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    @restaurant = Restaurant.new(restaurant_params)
+    if is_owner
+      @restaurant = Restaurant.new(restaurant_params)
+      @restaurant.owner = @current_user.id
+      @restaurant.save
+    end
   end
 
   private

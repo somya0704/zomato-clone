@@ -34,6 +34,7 @@ class User
       nil
     end
   end
+
   
   def encrypt_password
     if password.present?
