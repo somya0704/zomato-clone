@@ -4,7 +4,6 @@ class StaffsController < ApplicationController
     @user.role = "staff"
     @user.password = "Random"
     @user.save
-    byebug
     StaffConfirmationEmailJob.perform_later(
           @user.email.to_s, 
           @user.confirmation_token.to_s,

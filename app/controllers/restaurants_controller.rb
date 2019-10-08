@@ -9,6 +9,7 @@ class RestaurantsController < ApplicationController
       @restaurant = Restaurant.new(restaurant_params)
       @restaurant.owner = @current_user.id
       @restaurant.save
+      redirect_to  owner_dashboard_index_path
     end
   end
 
