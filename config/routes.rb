@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'staff_dashobard/index'
   get 'staffs/create'
   get 'owner_dashboard/index'
   get 'home/index'

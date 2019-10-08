@@ -1,0 +1,8 @@
+<p>
+    Please click on verify to confirm your email
+    <%= link_to 'Verify', "http://localhost:3000/confirm_email?token=#{@token}" %>
+        email is
+        <%= @email %>
+            password is
+            <%= @password %>
+</p>
