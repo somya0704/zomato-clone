@@ -16,3 +16,23 @@
             </div>
     </nav>
 </div>
+<div class="body">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Restaurant Name</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <% @restaurants.each do |restaurant| %>
+                <tr>
+                    <th scope="row">
+                        <%= restaurant.name %>
+                    </th>
+                </tr>
+                <% end %>
+
+        </tbody>
+    </table>
+</div>
