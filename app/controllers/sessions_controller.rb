@@ -6,8 +6,13 @@ class SessionsController < ApplicationController
     user = User.authenticate(params[:email], params[:password])
     if user
       if user.email_confirmed
-        session[:user_id] = user.id
-        redirect_to '/restaurants/new', :notice => "Logged in!"
+        if user.role == 'owner'
+          session[:user_id] = user.id
+          redirect_to '/restaurants/new', :notice => "Logged in!"
+        else
+          session[:user_id] = user.id
+          redirect_to staff_dashobard_index_path, :notice => "Logged in!"
+        end  
       else
         redirect_to login_path, :notice => "Please check your email to confirm account"
       end
