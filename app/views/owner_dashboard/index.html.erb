@@ -9,3 +9,23 @@
     <div class="staff-form">
         <%= render partial: 'staff_form.html.erb' %>
     </div>
+    <div class="staff-listing">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Staffs Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%# byebug %>
+                    <% @staffs.each do |staff| %>
+                        <tr>
+                            <th scope="row">
+                                <%= staff %>
+                            </th>
+                        </tr>
+                        <% end %>
+
+            </tbody>
+        </table>
+    </div>
