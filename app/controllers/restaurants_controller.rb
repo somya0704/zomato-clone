@@ -13,6 +13,10 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  def show
+    @restaurant_names = Restaurant.where(id: params[:id]).pluck(:name)
+  end
+
   private
 
   def restaurant_params

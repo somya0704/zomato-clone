@@ -11,7 +11,8 @@
                 <% @restaurants.each do |restaurant| %>
                     <tr>
                         <th scope="row">
-                            <%= restaurant.name %>
+                            <%= link_to  "#{ restaurant.name }", restaurant_path(restaurant.id) %>
+
                         </th>
                     </tr>
                     <% end %>
