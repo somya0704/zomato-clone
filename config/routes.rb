@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
+  
   get 'staff_dashobard/index'
   get 'staffs/create'
+  
   get 'owner_dashboard/index'
+  get 'owner_dashboard/remove_staff'
+
+  get 'owner/signup' => 'owners#new'
+
   get 'home/index'
-  root 'home#index'
+  root 'sessions#new'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

@@ -17,15 +17,16 @@
                 </tr>
             </thead>
             <tbody>
-                <%# byebug %>
-                    <% @staffs.each do |staff| %>
-                        <tr>
-                            <th scope="row">
-                                <%= staff %>
-                            </th>
-                        </tr>
-                        <% end %>
+                <% @staffs.each do |staff| %>
+                    <tr>
+                        <th scope="row">
+                            <%= staff[0] %>
+                                <%= link_to  "Remove Staff", owner_dashboard_remove_staff_path(staff[1].to_s), remote: true %>
+                        </th>
+                    </tr>
+                    <% end %>
 
             </tbody>
         </table>
     </div>
+</div>

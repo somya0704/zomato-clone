@@ -9,6 +9,9 @@ class SessionsController < ApplicationController
         if user.role == 'owner'
           session[:user_id] = user.id
           redirect_to '/restaurants/new', :notice => "Logged in!"
+        elsif user.role == 'customer'
+          session[:user_id] = user.id
+          redirect_to '/home/index', :notice => "Logged in!"  
         else
           session[:user_id] = user.id
           redirect_to staff_dashobard_index_path, :notice => "Logged in!"

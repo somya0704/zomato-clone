@@ -1,11 +1,16 @@
-<div class='login_form'>
+<div>
     <div class="header">
-        <a href='/signup' class='nav-link signup'>Signup</a>
-        <a href='/owner/signup' class='nav-link owner-signup'>Add Restaurant</a>
-        <h4 class="title">Login</h4>
+        <h4 class="title">Signup</h4>
     </div>
     <div class="body">
-        <%= form_tag sessions_path do %>
+        <%= form_for @user do |form| %>
+            <div>
+                <input type="hidden" name="role" id="user_role" value="<%= role  %>" , class="role" />
+            </div>
+            <div class=”field”>
+                <%= label_tag :name %>
+                    <%= text_field_tag :name %>
+            </div>
             <div class=”field”>
                 <%= label_tag :email %>
                     <%= text_field_tag :email %>
@@ -15,9 +20,7 @@
                     <%= password_field_tag :password %>
             </div>
             <div class=”actions”>
-                <p class="button">
-                    <%= submit_tag "Log in" %>
-                </p>
+                <%= form.submit 'Signup' %>
             </div>
 
             <% end %>

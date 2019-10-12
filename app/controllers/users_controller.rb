@@ -11,7 +11,6 @@ class UsersController < ApplicationController
       redirect_to signup_path
     else
       @user = User.new(user_params)
-      @user.role = "owner"
       if @user.save
         UserMailerConfirmationJob.perform_later(
           @user.email.to_s, 
@@ -37,6 +36,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:name, :email, :password)
+    params.permit(:name, :email, :password, :role)
   end
 end

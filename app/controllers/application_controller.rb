@@ -1,16 +1,19 @@
 class ApplicationController < ActionController::Base
+  #before_action :authenticate_user
+  before_action :current_user
 
-before_action :current_user
-
+  # def authenticate_user
+  
+  # end
+  
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
   helper_method :current_user
 
-def is_owner
+  def is_owner
     @current_user && @current_user.role == "owner"
-end
-
+  end
 
   def authorize
     redirect_to '/' unless current_user

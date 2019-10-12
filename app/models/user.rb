@@ -20,7 +20,7 @@ class User
   field :email_confirmed, type: Boolean, default: false 
 
   #user role
-  field :role, type: String, default: "owner"
+  field :role, type: String
 
   validates :name, presence: true
   validates :email, presence: true
