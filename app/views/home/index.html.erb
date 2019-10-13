@@ -1,5 +1,13 @@
 <div class="body">
     <%= link_to  "Logout", logout_path %>
+        <div class="search-form">
+            <%= form_tag home_index_path, :method => 'get' do %>
+                <p>
+                    <%= text_field_tag :search, params[:search] %>
+                        <%= submit_tag "Search", :name => nil %>
+                </p>
+                <% end %>
+        </div>
         <table class="table">
             <thead class="thead-dark">
                 <tr>
@@ -7,16 +15,13 @@
                 </tr>
             </thead>
             <tbody>
-
                 <% @restaurants.each do |restaurant| %>
                     <tr>
                         <th scope="row">
                             <%= link_to  "#{ restaurant.name }", restaurant_path(restaurant.id) %>
-
                         </th>
                     </tr>
                     <% end %>
-
             </tbody>
         </table>
 </div>
