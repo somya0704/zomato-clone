@@ -1,24 +1,13 @@
 # README
+Functionalities in the app-
+    Users can search for restaurants.
+    Users can find dishes served in a restaurant.
+    Users can also create their own restaurant.
+    Users can add staff user to their restaurant
+    Ability to search for a restaurant by cuisine
+    Ability to search for a restaurant
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Technology used-
+   Rails
+   Js
+   Sidekiq
