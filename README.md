@@ -1,5 +1,6 @@
 # README
 Functionalities in the app-  
+
     1. Users can search for restaurants.  
     2. Users can find dishes served in a restaurant.  
     3. Users can also create their own restaurant.  
