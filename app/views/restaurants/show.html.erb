@@ -1,5 +1,7 @@
-<div>
-    <% @restaurant_names.each do |name| %>
-        <%= name %>
-            <% end %>
-</div>
+<%= @restaurant.name %>
+    <div class="dish-listing">
+        <% @restaurant.dishes.each do |dish| %>
+            <%= dish.name %>
+                <br/>
+                <% end %>
+    </div>

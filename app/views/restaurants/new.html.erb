@@ -1,8 +1,10 @@
 <div class='signup_form'>
     <div class="header">
         <%= link_to  "Logout", logout_path %>
-            <%= link_to  "Dashboard", owner_dashboard_index_path %>
-                <h4 class="title">CREATE</h4>
+            <% if @restaurant %>
+                <%= link_to  "Dashboard", owner_dashboard_index_path %>
+                    <% end %>
+                        <h4 class="title">CREATE</h4>
     </div>
     <div class="body">
         <%= form_with model: @restaurant do |form| %>

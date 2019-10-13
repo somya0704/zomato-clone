@@ -7,7 +7,8 @@ class Restaurant
   field :owner, type: BSON::ObjectId
   field :staff, type: Array, default: []
 
-  #field :menu, type: String
+  embeds_many :dishes
+
 
   def add_staff(staff_id)
     self.push(staff: staff_id)

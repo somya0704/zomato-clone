@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get 'owner/signup' => 'owners#new'
 
+  post 'restaurants/add_dish'
+
   get 'home/index'
   root 'sessions#new'
 

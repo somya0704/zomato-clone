@@ -1,0 +1,25 @@
+<div class='dish_form'>
+    <div class="header">
+        <h4 class="title">Add Dish</h4>
+    </div>
+    <div class="body">
+        <%= form_tag '/restaurants/add_dish' do |form| %>
+            <div>
+                <input type="hidden" name="restaurant_id" id="restaurant_id" value="<%= @restaurant.id.to_s %>" , class="restaurant_id" />
+            </div>
+            <div class=”field”>
+                <div class=”field”>
+                    <%= label_tag :name %>
+                        <%= text_field_tag :name %>
+                </div>
+                <div class=”field”>
+                    <%= label_tag :price %>
+                        <%= text_field_tag :price %>
+                </div>
+                <div class=”actions”>
+                    <%= submit_tag "create" %>
+                </div>
+
+                <% end %>
+            </div>
+    </div>

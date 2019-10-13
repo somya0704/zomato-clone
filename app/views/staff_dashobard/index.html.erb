@@ -2,3 +2,19 @@
     <h4 class="title">Staff Dashboard</h4>
     <%= link_to  "Logout", logout_path %>
 </div>
+<div>
+    <div class="body">
+        <%= @restaurant.name %>
+    </div>
+    <br/><br/>
+    <div class="dish-form">
+        <%= render partial: 'owner_dashboard/dish_form.html.erb' %>
+    </div>
+    <br/><br/>
+    <div class="dish-listing">
+        <% @restaurant.dishes.each do |dish| %>
+            <%= dish.name %>
+                <br/>
+                <% end %>
+    </div>
+</div>

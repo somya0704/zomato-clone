@@ -14,13 +14,24 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    @restaurant_names = Restaurant.where(id: params[:id]).pluck(:name)
+    @restaurant = Restaurant.where(id: params[:id]).only(:name, :dishes).first
+  end
+
+  def add_dish
+    dish = Dish.new(dish_params)
+    restaurant = Restaurant.find_by(id: params[:restaurant_id])
+    restaurant.dishes << dish
+    restaurant.save
   end
 
   private
 
   def restaurant_params
     params.permit(:name, :image_url)
+  end
+
+  def dish_params
+    params.permit(:name, :price)
   end
 
 end
